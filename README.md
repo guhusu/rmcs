@@ -1,0 +1,2 @@
+my mobile template
+
