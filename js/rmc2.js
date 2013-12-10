@@ -67,6 +67,16 @@ var RMC={
 			//$('#'+RMC._NOWID).addClass("display-show");
 			$('#'+RMC._NOWID).attr('class','page display-show');
 			
+			//設定事件
+			$('[tap]').each(function(){
+				$(this).swipe( {
+		            tap:function(event, target) {
+		            	eval($(this).attr('tap'));
+		            },
+		            threshold:50
+		          });
+			});
+			
 			RMC.runCordova();
 		},
 		changePage:function(id){RMC.changepage(id);},
@@ -92,7 +102,7 @@ var RMC={
 			$(tmp).attr('class','page display-show');
 			//$('#'+RMC._NOWID).attr('class','page display-none');
 			this._PAGE_STORE.pop();
-			RMC._NOWID=this._PAGE_STORE[this._PAGE_STORE.length-1];
+			RMC._NOWID=this._PAGE_STORE[this._PAGE_STORE.length-1];alert(RMC._NOWID);
 			$('#'+RMC._NOWID).attr('class','page slideInLeft');
 			window.location.hash=RMC._NOWID;
 			setTimeout(function(){
@@ -101,6 +111,64 @@ var RMC={
 			},1200);
 			//var tmp=this._PAGE_STORE.pop();
 			//alert(tmp);
+		},
+		//swipe event
+		swipe:function(name,type,fn){
+			if(type=='left'){alert('left');
+				$('#'+name).on('swipeleft',function(e){
+					alert('left');
+				});
+				//$('#'+name).swipe();
+				/*if(document.getElementById(name)){
+					$('#'+name).css({left:'-'+RMC._SW+'px','z-index':2,'display':''}).animate({left:'0px'},500);
+					$('#'+RMC._NOWID).animate({left:RMC._SW+'px','z-index':1},500,function(){
+						$(this).css('display','none');
+					});
+					RMC._BACKID=RMC._NOWID;
+					RMC._NOWID=name;
+				}*/
+			}else{
+				$('#'+name).on('swiperight',function(e){
+					alert('right');
+				});
+			}
+		},
+		//執行cordova
+		runCordova:function(){
+			document.addEventListener("deviceready", RMC.deviceReady, false);
+		},
+		//cordova執行完成
+		deviceReady:function(){
+			this._CORDOVA_STATUS=true;
+		},
+		//加入事件
+		add_evnet:function(type,id,fun){
+			this._PAGE_EVENT[type][id]=fun;
+		},
+		on:function(id,type,fun){
+			switch(type)
+			{
+				case 'tap':
+				case 'click':
+					$('#'+id).swipe({
+						tap:fun,threshold:50	
+					});
+					break;
+				default:break;
+			}
+
+		},
+		tap:function(id,fun){
+			$('#'+id).swipe({
+				tap:fun,
+				threshold:50
+			});
+		},
+		click:function(id,fun){
+			$('#'+id).swipe({
+				tap:fun,
+				threshold:50
+			});
 		}
 };
 //cordova 參數
