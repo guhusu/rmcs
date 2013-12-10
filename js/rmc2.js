@@ -73,6 +73,7 @@ var RMC={
 			this._PAGE_STORE.pop();
 			RMC._NOWID=this._PAGE_STORE[this._PAGE_STORE.length-1];
 			$('#'+RMC._NOWID).attr('class','page display-show slideInLeft');
+			window.location.hash=RMC._NOWID;
 			//var tmp=this._PAGE_STORE.pop();
 			//alert(tmp);
 		}
