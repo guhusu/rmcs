@@ -21,8 +21,9 @@ body {
 	padding:5px 0px;
 	width:100%;
 	height:30px;
+	line-height:30px;
 	text-align:center;
-	color:#fff;
+	/*color:#fff;*/
 	background: #45484d; /* Old browsers */
 background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* Chrome,Safari4+ */
@@ -32,11 +33,20 @@ background: -ms-linear-gradient(top,  #45484d 0%,#000000 100%); /* IE10+ */
 background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C */
 	
 }
+.header-bg {
+	color:#fff;
+	background:#ff2424;
+}
+.bg-transparent {
+	background:transparent;
+}
 .content {
+	word-wrap:break-word;
+	word-break:break-all;
 	width:100%;
 	/*height:100%;*/
 	overflow:auto;
-	background:#fff;
+	/*background:#fff;*/
 }
 .footer {
 	width:100%;
@@ -89,6 +99,12 @@ background: linear-gradient(to bottom,  #ccd400 0%,#b3b800 100%); /* W3C */
 }
 .bg_f {
 	background:#fff;
+}
+.to-block {
+	display:block;
+}
+.to-inline {
+	display:inline-block;
 }
 @-webkit-keyframes slideInLeft {
 	0% {
@@ -297,9 +313,10 @@ background: linear-gradient(to bottom,  #ccd400 0%,#b3b800 100%); /* W3C */
 
 /*按鈕*/
 .btn {
+	/*display:inline-block;*/
 	font-size: 20px;
 	color: #3d3d3d;
-	padding: 8px 16px;
+	padding: 4px 8px;
 	margin:0px;
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(181,181,181,1) 100%); /* FF3.6+ */
@@ -327,4 +344,16 @@ background: linear-gradient(to bottom,  #ccd400 0%,#b3b800 100%); /* W3C */
 		0px 1px 0px rgba(255,255,255,1);
 	
 	cursor:pointer;
+}
+/*header 按鈕*/
+.header .l-btn {
+	float:left;
+	display:inline-block;
+	padding:4px 6px;
+	margin-left:5px;
+	background:#fff;
+	color:#000;
+	height:20px;
+	line-height:20px;
+	font-size:16px;
 }
