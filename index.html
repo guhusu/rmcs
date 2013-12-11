@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- !DOCTYPE html-->
 <!--
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
@@ -17,12 +17,12 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<!-- html>
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!-- meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
     </head>
@@ -41,4 +41,89 @@
             app.initialize();
         </script>
     </body>
+</html-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
+<title>RMC</title>
+<link href="css/rmc2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.touchswipe.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/iscroll.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/rmc2.js"></script>
+<style>
+.ccbg {
+	color:#fff;
+	background:#c00;
+}
+</style>
+</head>
+<body>
+</body>
+<div class="page" id="main">
+<div class="header"><span class="l-btn">返回</span>RMC2</div>
+<div class="content ccbg">
+這是內容
+<p>
+<a onclick="RMC.changepage('t')">t.html</a>
+</p>
+<p>
+<a onclick="RMC.changepage('qq')">qq.html</a>
+</p>
+<p>
+<a onclick="RMC.backpage()">返回</a>
+</p>
+<span class="btn" tap="RMC.changepage('t');">t.html</span>
+<div class="listview">
+<li><img src="images/qqd.jpg" class="l-img" /></li>
+<li>adfadsf</li>
+<li>adfadsf</li>
+<li>to upload_page</li>
+</div>
+<ul class="listview">
+<li><a href="" class="button">Delete</a>
+	<a href="" class="button lime delete">Delete</a>
+	<a href="" class="button save">Save</a>
+	<a href="" class="button arrow">Arrow</a></li>
+<li>adfadsf</li>
+<li>adfadsf</li>
+<li><span class="list delete">adfadsf</span></li>
+<li><span class="btn" id="hash">測試hash </span></li>
+</ul>
+</div>
+</div>
+<div class="page" id="t">
+<div class="header">第二頁</div>
+<div class="content">
+這是內容sss
+<p>
+<a onclick="RMC.changepage('main')">main.html</a>
+</p>
+<p>
+<a onclick="RMC.changepage('qq')">qq.html</a>
+</p>
+<p>
+<a onclick="RMC.backpage()">返回</a>
+</p>
+</div>
+</div>
+<div class="page" id="qq">
+<div class="header" data-position="true">第三頁</div>
+<div class="content">
+這是內容adfasdfasdfasdf
+<p>
+<a onclick="RMC.changepage('t')">t.html</a>
+</p>
+<p>
+<a onclick="RMC.changepage('main')">main.html</a>
+</p>
+<p>
+<a onclick="RMC.backpage()">返回</a>
+</p>
+</div>
+<div class="footer" data-position="true">底部</div>
+</div>
 </html>
