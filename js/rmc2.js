@@ -1,3 +1,11 @@
+/*
+ * name:	RMC
+ * author:	guhusu
+ * email:	guhusu@gmail.com
+ * version:	2
+ * description:開發對於cordoav執行的framework
+ * 更新紀錄:
+ * */
 var RMC={
 		_SH:0,//視窗寬度
 		_SW:0,//視窗高度
@@ -135,16 +143,34 @@ var RMC={
 		backPage:function(){RMC.backpage();},
 		backpage:function(){
 			if(this._PAGE_STORE.length>1){
+				//隱藏前
+				if(RMC._PAGE_EVENT['hidebefore'][RMC._NOWID]!=undefined){
+					eval(RMC._PAGE_EVENT['hidebefore'][RMC._NOWID]+"();");
+				}
+				var hide_id=RMC._NOWID;
 				var tmp='#'+RMC._NOWID;
 				$(tmp).attr('class','page display-show');
 				//$('#'+RMC._NOWID).attr('class','page display-none');
 				this._PAGE_STORE.pop();
 				RMC._NOWID=this._PAGE_STORE[this._PAGE_STORE.length-1];//alert(RMC._NOWID);
+				//顯示前
+				if(RMC._PAGE_EVENT['showbefore'][RMC._NOWID]!=undefined){
+	                eval(RMC._PAGE_EVENT['showbefore'][RMC._NOWID]+"();");
+				}
 				$('#'+RMC._NOWID).attr('class','page slideInLeft');
 				window.location.hash=RMC._NOWID;
 				setTimeout(function(){
 				//	$('#'+RMC._NOWID).attr('class','page display-now');
 					$(tmp).attr('class','page hidden');
+					//顯示後
+					if(RMC._PAGE_EVENT['show'][RMC._NOWID]!=undefined){
+	                    //alert(RMC._PAGE_EVENT['show'][id]);
+	                    eval(RMC._PAGE_EVENT['show'][RMC._NOWID]+"();");
+					}
+					//隱藏後
+					if(RMC._PAGE_EVENT['hide'][hide_id]!=undefined){
+	                    eval(RMC._PAGE_EVENT['hide'][hide_id]+"();");
+					}
 				},1200);
 				//var tmp=this._PAGE_STORE.pop();
 				//alert(tmp);
@@ -206,11 +232,30 @@ var RMC={
 		on:function(id,type,fun){
 			switch(type)
 			{
-				case 'tap':
-				case 'click':
+				case 'tap'://點擊
+				case 'click'://點擊 
 					$('#'+id).swipe({
 						tap:fun,threshold:50	
 					});
+					break;
+				case 'swipe':
+					$('#'+id).swipe({swipe:fun,threshold:0});
+					break;
+				case 'swipeleft'://左滑
+				case 'swipeLeft'://左滑
+					$('#'+id).swipe({swipeLeft:fun,threshold:0});
+					break;
+				case 'swiperight'://右滑
+				case 'swipeRight'://右滑
+					$('#'+id).swipe({swipeRight:fun,threshold:0});
+					break;
+				case 'swipedown'://右滑
+				case 'swipeDown'://右滑
+					$('#'+id).swipe({swipeDown:fun,threshold:0});
+					break;
+				case 'swipeup'://右滑
+				case 'swipeUp'://右滑
+					$('#'+id).swipe({swipeUp:fun,threshold:0});
 					break;
 				default:break;
 			}
