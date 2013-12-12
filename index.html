@@ -59,6 +59,35 @@
 	color:#fff;
 	background:#c00;
 }
+  /* Begin Navigation Bar Styling */
+   #nav {
+      width: 100%;
+      float: left;
+      margin: 0 0 3em 0;
+      padding: 0;
+      list-style: none;
+      background-color: #f2f2f2;
+      border-bottom: 1px solid #ccc; 
+      border-top: 1px solid #ccc; }
+   #nav li {
+      float: left; width:20%;
+     
+      
+      }
+   #nav li a {
+      display: block;
+      padding: 8px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #069;
+      border-right: 1px solid #ccc; 
+       white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+      }
+   #nav li a:hover {
+      color: #c00;
+      background-color: #fff; }
 </style>
 </head>
 <body>
@@ -66,6 +95,13 @@
 <div class="page" id="main">
 <div class="header"><span class="l-btn">返回</span>RMC2</div>
 <div class="content ccbg">
+<ul id="nav">
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Our Productsadfsdfee</a></li>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Login</a></li>
+   </ul>
 這是內容
 <p>
 <a onclick="RMC.changepage('t')">t.html</a>
@@ -97,7 +133,7 @@
 </div>
 <div class="page" id="t">
 <div class="header">第二頁</div>
-<div class="content">
+<div class="content ccbg">
 這是內容sss
 <p>
 <a onclick="RMC.changepage('main')">main.html</a>
@@ -112,7 +148,7 @@
 </div>
 <div class="page" id="qq">
 <div class="header" data-position="true">第三頁</div>
-<div class="content">
+<div class="content ccbg">
 這是內容adfasdfasdfasdf
 <p>
 <a onclick="RMC.changepage('t')">t.html</a>
