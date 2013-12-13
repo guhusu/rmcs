@@ -149,7 +149,7 @@ var RMC={
 				}
 				var hide_id=RMC._NOWID;
 				var tmp='#'+RMC._NOWID;
-				$(tmp).attr('class','page display-show');
+				$(tmp).attr('class','page fadeOut2');
 				//$('#'+RMC._NOWID).attr('class','page display-none');
 				this._PAGE_STORE.pop();
 				RMC._NOWID=this._PAGE_STORE[this._PAGE_STORE.length-1];//alert(RMC._NOWID);
@@ -161,7 +161,8 @@ var RMC={
 				window.location.hash=RMC._NOWID;
 				setTimeout(function(){
 				//	$('#'+RMC._NOWID).attr('class','page display-now');
-					$(tmp).attr('class','page hidden');
+					//alert($(tmp).attr('class'));
+					//$(tmp).attr('class','page display-hidden');
 					//顯示後
 					if(RMC._PAGE_EVENT['show'][RMC._NOWID]!=undefined){
 	                    //alert(RMC._PAGE_EVENT['show'][id]);
