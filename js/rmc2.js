@@ -90,7 +90,7 @@ var RMC={
 				RMC._NOWID=hash;
 				RMC._PAGE_STORE.push(hash);
 			}
-			$('#'+RMC._NOWID).attr('class','page display-show');
+			$('#'+RMC._NOWID).attr('class','page');
 			//設定事件
 			$('[tap]').each(function(){
 				$(this).swipe( {
