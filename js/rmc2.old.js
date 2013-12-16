@@ -90,7 +90,7 @@ var RMC={
 				RMC._NOWID=hash;
 				RMC._PAGE_STORE.push(hash);
 			}
-			$('#'+RMC._NOWID).attr('class','page display-now');
+			$('#'+RMC._NOWID).attr('class','page');
 			//設定事件
 			$('[tap]').each(function(){
 				$(this).swipe( {
@@ -118,7 +118,7 @@ var RMC={
 			var hide_id=RMC._NOWID;
 			var tmp='#'+RMC._NOWID;
 			//$('#'+RMC._NOWID).attr('class','page display-none');
-			$(tmp).attr('class','page');
+			$(tmp).attr('class','page fadeOut');
 			RMC._NOWID=id;
 			//var nc=$('#'+id).attr('data-css');alert(nc);
 			$('#'+id).attr('class','page slideInRight');
@@ -127,7 +127,7 @@ var RMC={
 				//alert($('#'+id).outerWidth(true));
 				//alert($('body').outerWidth(true));
 				$('#'+id).attr('class','page display-now'); 
-				$(tmp).attr('class','page display-none');
+				//$(tmp).attr('class','page display-none');
 				//顯示後
 				if(RMC._PAGE_EVENT['show'][id]!=undefined){
                     //alert(RMC._PAGE_EVENT['show'][id]);
@@ -149,7 +149,7 @@ var RMC={
 				}
 				var hide_id=RMC._NOWID;
 				var tmp='#'+RMC._NOWID;
-				$(tmp).attr('class','page rotateOutDownRight');
+				$(tmp).attr('class','page fadeOut2');
 				//$('#'+RMC._NOWID).attr('class','page display-none');
 				this._PAGE_STORE.pop();
 				RMC._NOWID=this._PAGE_STORE[this._PAGE_STORE.length-1];//alert(RMC._NOWID);
@@ -157,7 +157,7 @@ var RMC={
 				if(RMC._PAGE_EVENT['showbefore'][RMC._NOWID]!=undefined){
 	                eval(RMC._PAGE_EVENT['showbefore'][RMC._NOWID]+"();");
 				}
-				$('#'+RMC._NOWID).attr('class','page display-now');
+				$('#'+RMC._NOWID).attr('class','page slideInLeft');
 				window.location.hash=RMC._NOWID;
 				setTimeout(function(){
 				//	$('#'+RMC._NOWID).attr('class','page display-now');

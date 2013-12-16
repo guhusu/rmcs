@@ -74,12 +74,10 @@ background: linear-gradient(to bottom,  #ccd400 0%,#b3b800 100%); /* W3C */
 	opacity:0;
 	z-index:1;
 }
-.display-show {
+.page.display-show {
 	z-index:9;
 }
-.display-now {
-	/*left:0px;
-	top:0px;*/
+.page.display-now {
 	z-index:10;
 	left:0px;
 	top:0px;
@@ -163,7 +161,12 @@ background: linear-gradient(to bottom,  #ccd400 0%,#b3b800 100%); /* W3C */
 }
 @-webkit-keyframes slideInRight {
 	0% {
-		opacity: 1;
+		opacity: 0;
+		z-index:8;
+		-webkit-transform: translateX(2000px);
+	}
+	10% {
+		opacity:1;
 		z-index:8;
 		-webkit-transform: translateX(2000px);
 	}
@@ -292,10 +295,10 @@ background: linear-gradient(to bottom,  #ccd400 0%,#b3b800 100%); /* W3C */
     z-index:10;
   }
 
-  99% {
+  80% {
   
   	opacity: 0.9;
-  	z-index:10;
+  	z-index:1;
   }
 	
   100% {
@@ -314,7 +317,7 @@ background: linear-gradient(to bottom,  #ccd400 0%,#b3b800 100%); /* W3C */
 
   80% {
   	opacity: 0.9;
-  	z-index:5;
+  	z-index:1;
   }
 	
   100% {
@@ -372,6 +375,62 @@ background: linear-gradient(to bottom,  #ccd400 0%,#b3b800 100%); /* W3C */
 .fadeOut2 {
   -webkit-animation-name: fadeOut2;
   animation-name: fadeOut2;
+}
+
+@-webkit-keyframes rotateOutDownRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+    z-index:12
+  }
+  
+  90% {
+  	-webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0.8;
+  
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutDownRight {
+  0% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+    z-index:12
+  }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+.rotateOutDownRight {
+  -webkit-animation-name: rotateOutDownRight;
+  animation-name: rotateOutDownRight;
 }
 
 /*按鈕*/
