@@ -53,7 +53,21 @@
 <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/jquery.touchswipe.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/iscroll.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.pep.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/rmc2.js"></script>
+<script type="text/javascript" charset="utf-8">
+function dragstartv(e){
+	//e.dataTransfer.setData('image/jpg' ,event.currentTarget.id);
+}
+$(function(){
+	$('#dragv').pep({
+		  axis: 'x'
+	});
+	$('#vvssdd').pep({
+		constrainTo:'parent'
+	});
+});
+</script>
 <style>
 .ccbg {
 	color:#fff;
@@ -98,7 +112,6 @@
       
       
       
-      
 </style>
 </head>
 <body>
@@ -127,7 +140,11 @@
 <a onclick="RMC.backpage()">返回</a>
 </p>
 
+<div style="border:#f00 solid 1px;height:150px;width:100%;">
+<div style="width:50px;height:50px;background:#ccc;" id="vvssdd">拖</div>
+</div>
 
+<div style="width:50px;height:50px;background:#ccc;" id="dragv">拖2</div>
 
 <span class="btn" tap="RMC.changepage('t');">t.html</span>
 <div class="listview">
@@ -174,7 +191,7 @@
 <div class="footer">測試</div>
 </div>
 <div class="page" id="qq">
-<div class="header" data-position="true">第三頁</div>
+<div class="header" >第三頁</div>
 <div class="content ccbg">
 這是內容adfasdfasdfasdf
 <p>
