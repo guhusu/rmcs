@@ -40,7 +40,7 @@ var RMC={
 				var header=$(this).find('.header');
 				var footer=$(this).find('.footer');
 				HP=header.attr('data-position');
-				if(HP){
+				if(header){
 					//$(this).find('.header').css('position','fixed');
 					//header.css('position','fixed');
 					//header.addClass("fixed");
@@ -51,7 +51,7 @@ var RMC={
 					chf=true;
 				}
 				FP=footer.attr('data-position');
-				if(FP){
+				if(footer){
 					FP=footer.outerHeight(true);
 					CH -=FP;
 					//content.css('margin-bottom',FP+'px');
@@ -102,6 +102,11 @@ var RMC={
 			});
 			
 			RMC.runCordova();
+			//專換上方位置
+			var ww=this._SW-146;
+			$('.header-nameb').each(function(){
+				$(this).css('width',ww+'px');
+			});
 		},
 		changePage:function(id){RMC.changepage(id);},
 		changepage:function(id){
@@ -163,6 +168,7 @@ var RMC={
 				//	$('#'+RMC._NOWID).attr('class','page display-now');
 					//alert($(tmp).attr('class'));
 					//$(tmp).attr('class','page display-hidden');
+					$(tmp).attr('class','page display-none');
 					//顯示後
 					if(RMC._PAGE_EVENT['show'][RMC._NOWID]!=undefined){
 	                    //alert(RMC._PAGE_EVENT['show'][id]);
